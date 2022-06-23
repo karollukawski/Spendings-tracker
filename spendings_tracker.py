@@ -26,19 +26,24 @@ while True:
     def show_stats(month):
         
         total_amount_this_month = sum(expense_amount for expense_amount, expense_month in expenses if expense_month == month)
+        number_of_expenses_this_month = sum(1 for expense_month in expenses if expense_month == month)
         total_amount_all_months = sum(expense_amount for expense_amount in expenses)
+        average_expense_this_month = total_amount_this_month / number_of_expenses_this_month
+        average_expense_all_months = total_amount_all_months / len(expenses)
         
 
         print ()
         print("Stats")
         print ("All spendings in this month [$]: ", total_amount_this_month)
+        print ("Average expense in this month [$]: ", average_expense_this_month)
         print ("All spendings [$]: ", total_amount_all_months)
+        print ("Average expense [$]: ", average_expense_all_months)
 
     while True:
         print ()
         print ("Available options: ")
         print ("0 - Return to the selection of the month")
-        print ("1 - Show all spendings")
+        print ("1 - Show all spendings this month")
         print ("2 - Add a new expense")
         print ("3 - Stats")
 
