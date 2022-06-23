@@ -11,7 +11,9 @@ while True:
     expenses = []
 
     def show_expenses (month):
-        print (expenses)
+        for expense_amount, expense_type, expense_month in expenses:
+            if expense_month == month:
+                print (f'{expense_amount}$ - {expense_type}')
 
     def add_expense(month):
         print ()
